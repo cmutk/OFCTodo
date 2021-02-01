@@ -120,7 +120,7 @@ const validateTaskDate = function () {
   if (startDate > finishDate) {
     return "Generic Error";
   } else if (currentDate > finishDate) {
-    return "Spesific Error";
+    return "specific Error";
   } else {
     return "Good to go";
   }
@@ -149,7 +149,7 @@ const validateTaskDeadline = function (e) {
   if (validateTaskDate() == "Generic Error") {
     message = "* Deadline cannot be earlier than Start Date";
     state = "error";
-  } else if (validateTaskDate() == "Spesific Error") {
+  } else if (validateTaskDate() == "specific Error") {
     message = "* Deadline cannot be earlier from Today";
     state = "error";
   } else {
