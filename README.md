@@ -1,2 +1,2 @@
 # OFCTodo
-Vanillascript to do app
+A vanillascript to do app.

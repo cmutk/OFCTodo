@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="HandheldFriendly" content="true" />
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./main.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merienda+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <aside id="aside">
+      <div class="overlay" data-overlay-lg="hide" data-close-modal-lg>
+        &nbsp;
+      </div>
+      <div class="modal" data-modal-lg="closed">
+        <div class="table-cell">
+          <div class="task-panel-header" data-task-panel-header="new-task">
+            <div
+              class="task-panel-header-text-container"
+              data-task-panel-text-container
+            >
+              <h4 class="task-panel-header-text" data-task-panel-text>
+                New Task
+              </h4>
+              <i class="material-icons" data-task-panel-icon>expand_more</i>
+            </div>
+
+            <button class="navbar-header-back" data-close-modal-lg>
+              <i class="material-icons" style="color: white;">close</i>
+            </button>
+          </div>
+          <div class="modal-large-wrapper">
+            <div id="modal-large" class="modal-large-container"></div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay" data-overlay-md="hide" data-close-modal-md>
+        &nbsp;
+      </div>
+      <div class="modal" data-modal-md="closed">
+        <div class="select-list-container">
+          <div class="select-list-title-wrapper"><h4>Send To:</h4></div>
+          <ul data-select-list></ul>
+        </div>
+      </div>
+      <div class="overlay" data-overlay-sm="hide" data-close-modal-sm>
+        &nbsp;
+      </div>
+      <div class="modal" data-modal-sm="closed">
+        <div class="modal-message-box-container">
+          <div class="modal-message-box-content" data-message-box-content></div>
+          <div class="modal-message-box-buttons">
+            <button class="message-box-button" data-message-button="cancel">
+              Cancel
+            </button>
+            <button class="message-box-button" data-message-button="confirm">
+              Confirm
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <nav>
+          <div class="navbar-header">
+            <button class="navbar-back-button">
+              <i class="material-icons" style="color: white;">arrow_back</i>
+            </button>
+            <button class="navbar-logo">
+              OFCourse!
+            </button>
+            <div class="search-bar-container">
+              <input
+                class="search-bar-input"
+                type="search"
+                placeholder=" Search"
+              />
+              <button class="search-bar-submit-button">
+                <i class="material-icons md-20">search</i>
+              </button>
+            </div>
+            <div class="navbar-container">
+              <button
+                class="navbar-header-newtask"
+                data-open-modal-lg="new-task"
+              >
+                New
+              </button>
+ 
+            </div>
+          </div>
+        </nav>
+      </header>
+      <section name="card-containers">
+        <div id="js-main-page-container" class="main-page-container table">
+          <div class="table-row">
+            <div class="table-cell">
+              <h4 style="color: #0fa10c;">Completed Tasks</h4>
+              <div class="field-line">
+                <ul
+                  id="completed-tasks"
+                  data-task-container="completed-tasks"
+                ></ul>
+              </div>
+            </div>
+
+            <div class="table-cell">
+              <h4 style="color: #cf600e;">Current Tasks</h4>
+              <div class="field-line">
+                <ul id="current-tasks" data-task-container="current-tasks"></ul>
+              </div>
+            </div>
+
+            <div class="table-cell">
+              <h4 style="color: #b92d7f;">Urgent Tasks</h4>
+              <div class="field-line">
+                <ul id="urgent-tasks" data-task-container="urgent-tasks"></ul>
+              </div>
+            </div>
+
+            <div class="table-cell">
+              <h4 style="color: #109983;">Long-Term Tasks</h4>
+              <div class="field-line">
+                <ul
+                  id="long-term-tasks"
+                  data-task-container="long-term-tasks"
+                ></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="mobile-nav" id="mobile-nav">
+        <div class="navbar-main">
+          <button class="navbar-menu-button">
+            <i class="material-icons">menu</i>
+          </button>
+          <button class="navbar-addtask-button" data-open-modal-lg="new-task">
+            <i class="material-icons md-32">add</i>
+          </button>
+          <button class="navbar-search-button">
+            <i class="material-icons">search</i>
+          </button>
+        </div>
+
+        <div class="navbar-scroll">
+          <button
+            class="navbar-scroll-completed completed-shadow"
+            data-navbar-scroll-button="completed"
+          >
+            <div class="scroll-button-text">Completed</div>
+          </button>
+          <button
+            class="navbar-scroll-current current-shadow"
+            data-navbar-scroll-button="current"
+          >
+            <div class="scroll-button-text">Current</div>
+          </button>
+          <button
+            class="navbar-scroll-urgent urgent-shadow"
+            data-navbar-scroll-button="urgent"
+          >
+            <div class="scroll-button-text">Urgent</div>
+          </button>
+          <button
+            class="navbar-scroll-longterm long-term-shadow"
+            data-navbar-scroll-button="longterm"
+          >
+            <div class="scroll-button-text">Long-Term</div>
+          </button>
+        </div>
+      </section>
+    </main>
+    <template id="new-task-template">
+      <div id="js-new-task-container" class="newtask-modal">
+        <div class="newtask-options-div">
+          <h4 class="newtask-options-text">Basic</h4>
+        </div>
+        <div class="task-name-div">
+          <label
+            for="js-get-task-name"
+            class="label"
+            data-validation-label="none"
+            >Task Name</label
+          >
+          <input
+            type="text"
+            id="js-get-task-name"
+            class="add-task-name"
+            value=""
+            data-validation-input="none"
+            data-new-task-name-input
+          />
+          <p class="validation-message" data-validation-message="none"></p>
+        </div>
+        <div class="task-begins-div">
+          <label for="js-task-begins" class="label" data-validation-label="none"
+            >Start Date</label
+          >
+          <input
+            type="date"
+            name="begins"
+            id="js-get-task-begins"
+            class="add-task-begins"
+            value=""
+            data-validation-input="none"
+            data-new-task-start-input
+          />
+          <p class="validation-message" data-validation-message="none"></p>
+        </div>
+        <div class="task-deadline-div">
+          <label
+            for="js-task-deadline"
+            class="label"
+            data-validation-label="none"
+            >Deadline</label
+          >
+          <input
+            type="date"
+            name="deadline"
+            id="js-get-task-deadline"
+            class="add-task-deadline"
+            value=""
+            data-validation-input="none"
+            data-new-task-deadline-input
+          />
+          <p class="validation-message" data-validation-message="none"></p>
+        </div>
+        <div class="newtask-options-div">
+          <h4 class="newtask-options-text">Details</h4>
+        </div>
+        <div id="js-task-description-div" class="task-description-div toggle">
+          <label for="js-get-task-description" class="label prevent-pointer"
+            >Description:</label
+          >
+          <div
+            id="js-task-description-icon"
+            class="material-icons md-48 newtask toggle-switch"
+          >
+            toggle_off
+          </div>
+        </div>
+        <div class="toggle-content">
+          <textarea
+            name="description"
+            id="js-get-task-description"
+            class="add-task-description"
+            value=""
+            data-new-task-description-input
+          ></textarea>
+        </div>
+
+        <div id="js-task-subtask-div" class="task-subtask-div toggle">
+          <label for="js-get-subtasks" class="label prevent-pointer"
+            >Sub-tasks:</label
+          >
+          <div
+            id="js-subtask-switch-icon"
+            class="material-icons md-48 newtask toggle-switch"
+          >
+            toggle_off
+          </div>
+        </div>
+        <div class="subtask-order-container toggle-content">
+          <ul data-new-subtask-container></ul>
+        </div>
+        <div class="new-task-buttons-div">
+          <button
+            type="button"
+            data-new-task-button="create-button"
+            id="js-create-button"
+            class="new-task-button create-button"
+            data-close-modal-lg
+          >
+            Create!
+          </button>
+          <button
+            type="button"
+            data-new-task-button="cancel-button"
+            id="js-cancel-button"
+            class="new-task-button cancel-button"
+            data-close-modal-lg
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </template>
+    <template id="task-card-template">
+      <li class="task-card-li task-card" draggable="true">
+        <div class="task-card-compact toggle">
+          <div class="card-compact-info">
+            <div class="compact-info-name">
+              <p data-task-name></p>
+            </div>
+            <div class="compact-info-detail">
+              <p data-task-remaining></p>
+              <i class="material-icons">expand_more</i>
+              <!-- <i class="material-icons">expand_less</i> -->
+            </div>
+          </div>
+          <div class="card-compact-progress-bar prevent-pointer">
+            <div class="card-progress-bar">
+              <div class="card-progress-value" data-progress-value></div>
+              <div class="card-progress-fill" data-progress-fill></div>
+            </div>
+          </div>
+        </div>
+        <div class="task-card-detailed toggle-content">
+          <div class="card-detailed-times">
+            <div class="card-time-start">
+              <p>Starts:</p>
+              <p data-task-start></p>
+            </div>
+            <div class="card-time-end">
+              <p>Ends:</p>
+              <p data-task-deadline></p>
+            </div>
+          </div>
+          <div class="card-detailed-description">
+            <p>Description:</p>
+            <p data-task-description></p>
+          </div>
+          <div class="card-detailed-subtasks">
+            <div class="card-subtask-title">
+              <p>Subtasks:</p>
+              <p data-subtasks-left></p>
+            </div>
+
+            <div class="card-subtasks-container">
+              <ul data-subtasks-container></ul>
+            </div>
+          </div>
+          <div class="card-detailed-controls">
+            <button
+              class="detailed-controls-button delete"
+              data-card-button="delete-task"
+            >
+              <i class="material-icons">delete</i>
+            </button>
+            <button
+              class="detailed-controls-button edit"
+              data-card-button="add-subtask"
+            >
+              <i class="material-icons">add</i>
+            </button>
+            <button
+              class="detailed-controls-button completed"
+              data-card-button="complete-task"
+            >
+              <i class="material-icons">check</i>
+            </button>
+          </div>
+        </div>
+      </li>
+    </template>
+    <template id="subtask-list-template">
+      <li>
+        <div class="card-subtask">
+          <input type="checkbox" />
+          <label class="label-subtask">
+            <span class="custom-checkbox material-icons"
+              >check_box_outline_blank</span
+            >
+            <span class="custom-checkbox checked material-icons"
+              >check_box</span
+            >
+          </label>
+        </div>
+      </li>
+    </template>
+    <template id="add-subtask-template">
+      <li>
+        <div>
+          <button>
+            <i class="material-icons">add</i>
+          </button>
+          <textarea value="" placeholder="Add Subtask"></textarea>
+        </div>
+      </li>
+    </template>
+  </body>
+</html>
