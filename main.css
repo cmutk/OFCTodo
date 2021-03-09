@@ -553,6 +553,21 @@ li {
   display: flex;
   padding: 14px 16px;
 }
+.task-panel-header-close-button{
+  all: unset;
+  display: flex;
+  padding: 6px;
+  margin: 8px 8px 8px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 200ms ease-in-out;
+  transform: scale(1);
+  
+}
+.task-panel-header-close-button:hover{
+background-color: #ffffff40;
+transform: scale(1.1);
+}
 [data-task-panel-header="new-task"] {
   background-color: var(--clr-new-task-primary);
   box-shadow: 2px 2px 4px var(--clr-new-task-shadow), -2px -2px 4px #ffffff;
