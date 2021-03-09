@@ -79,6 +79,7 @@ li {
   border-width: thin;
   transform: scale(1);
   transition: transform 200ms ease-in-out;
+  cursor: pointer;
 }
 .task-card:hover,
 .task-card:focus,
@@ -813,12 +814,21 @@ transform: scale(1.1);
   background-color: var(--clr-header-primary);
   box-shadow: 2px 2px 4px var(--clr-header-shadow), -2px -2px 4px #ffffff;
 }
+.navbar-header-newtask{
+  cursor: pointer;
+  transition: transform 200ms ease-in-out;
+  transform: scale(1);
+}
+.navbar-header-newtask:hover{
+transform: scale(1.1);
+}
 
 .navbar-back-button {
   display: none;
 }
 
 .navbar-logo {
+  all:unset;
   font-family: "Merienda One", cursive;
   font-size: 24px;
   background-color: transparent;
@@ -841,6 +851,7 @@ transform: scale(1.1);
   border-width: 1px;
 }
 .search-bar-submit-button {
+  cursor: pointer;
   float: right;
   display: block;
   margin: 0 2px;
@@ -865,7 +876,8 @@ transform: scale(1.1);
   font-size: 1rem;
   background-color: transparent;
   border-style: none;
-  font-weight: bold;
+  font-weight:600;
+  font-family: "Merienda One", cursive;
   color: white;
   text-align: center;
   padding: 14px 16px;
