@@ -924,8 +924,8 @@ function renderTasks() {
   });
 }
 function calculateTaskDates(deadline) {
-  const todayMilisec = Date.now();
-  const deadlineMilisec = Date.parse(deadline);
+  const todayMilisec = new Date();
+  const deadlineMilisec = new Date(deadline).setHours(23,59,59,999);
   const oneDay = 1000 * 60 * 60 * 24;
   // const oneWeek = 1000 * 60 * 60 * 24 * 7;
   const differenceMilisec = deadlineMilisec - todayMilisec;
@@ -937,7 +937,10 @@ function taskDatesToDisplay(deadlineDate) {
   const hasDeadlinePassed = Math.sign(deadlineInDays) < 0;
   const isBetweenZeroAndOne = Math.abs(deadlineInDays) < 1;
   const result = isBetweenZeroAndOne ? 1 : Math.round(Math.abs(deadlineInDays));
-  return hasDeadlinePassed ? "-" + result + "d" : result + "d";
+ const label = result + "d"
+  return hasDeadlinePassed ? `-${label}` 
+  : (!hasDeadlinePassed&&isBetweenZeroAndOne) ? `<${label}`
+  : label;
 }
 function isTaskStatusCompletedOrCurrent(status) {
   return status === "completed" || status === "current";
