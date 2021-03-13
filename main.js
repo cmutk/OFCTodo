@@ -937,9 +937,10 @@ function taskDatesToDisplay(deadlineDate) {
   const hasDeadlinePassed = Math.sign(deadlineInDays) < 0;
   const isBetweenZeroAndOne = Math.abs(deadlineInDays) < 1;
   const result = isBetweenZeroAndOne ? 1 : Math.round(Math.abs(deadlineInDays));
-  return hasDeadlinePassed ? "-" + result + "d" 
-  : (!hasDeadlinePassed&&isBetweenZeroAndOne) ? "< " + result +"d" 
-  : result + "d";
+ const label = result + "d"
+  return hasDeadlinePassed ? `-${label}` 
+  : (!hasDeadlinePassed&&isBetweenZeroAndOne) ? `<${label}`
+  : label;
 }
 function isTaskStatusCompletedOrCurrent(status) {
   return status === "completed" || status === "current";
